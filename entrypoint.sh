@@ -26,7 +26,6 @@ chown -R node:node /home/node/.serverless
 cd $APP_ROOT
 
 if [ "${1:-}" = "sls" ] || [ "${1:-}" = "serverless" ]; then
-  echo "RUNNING SERVERLESS"
   shift
   exec sudo -u node /home/node/.npm-global/bin/serverless "$@"
 fi
