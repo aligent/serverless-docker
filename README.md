@@ -19,5 +19,9 @@ You will then need to reload your bashrc file, either by running `. ~/.bashrc` o
 
 You can now run serverless normally.
 
+To create a new project for example:
 
+```
+serverless create --template aws-nodejs --path test-service
+```
 
