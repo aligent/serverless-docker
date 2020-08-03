@@ -9,7 +9,7 @@ Ensure you have a .npm directory for caching dependancies (`mkdir -p ~/.npm`)
 Add the following lines to your `~/.bashrc` file to be able to run it easily...
 
 ```
-alias node-run='docker run --rm -p 3000:3000 -p 3002:3002 -it --volume ~/.npm:/home/node/.npm --volume $PWD:/app aligent/serverless'
+alias node-run='docker run --rm -it --volume ~/.npm:/home/node/.npm --volume $PWD:/app aligent/serverless'
 alias serverless='node-run serverless'
 ```
 
