@@ -22,7 +22,6 @@ RUN npm install -g serverless@1.77.1
 RUN curl -o- -L https://yarnpkg.com/install.sh | bash
 
 RUN serverless --version
-RUN mkdir /home/node/.aws
 
 USER root
 

@@ -22,7 +22,6 @@ useradd --gid node --no-log-init --home-dir /home/node --shell /bin/bash --uid $
 
 chown -R node:node /home/node/.config
 chown -R node:node /home/node/.serverless
-chown -R node:node /home/node/.aws
 
 cd $APP_ROOT
 
