@@ -18,9 +18,9 @@ WORKDIR /app
 ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
 ENV PATH=$PATH:/home/node/.npm-global/bin
 
-RUN npm install -g serverless@1.77.1
 RUN curl -o- -L https://yarnpkg.com/install.sh | bash
 
+RUN npm install -g serverless@1.78.0
 RUN serverless --version
 
 USER root
