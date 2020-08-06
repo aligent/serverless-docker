@@ -1,0 +1,9 @@
+{
+  "name": "serverless-docker",
+  "version": "1.0.0",
+  "author": "Jarrod Swift <jarrod.swift@aligent.com.au> (https://aligent.com.au)",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "serverless": "*"
+  }
+}
