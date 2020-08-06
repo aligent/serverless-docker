@@ -20,7 +20,7 @@ ENV PATH=$PATH:/home/node/.npm-global/bin
 
 RUN curl -o- -L https://yarnpkg.com/install.sh | bash
 
-RUN npm install -g serverless@1.78.0
+RUN npm install -g serverless@1.78.1
 RUN serverless --version
 
 USER root
