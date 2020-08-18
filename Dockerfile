@@ -8,7 +8,7 @@ RUN chown node:node /serverless
 ARG DEBIAN_INTERACTIVE=noninteractive
 RUN apt-get update && \
     apt-get --no-install-recommends --assume-yes --quiet \
-        install sudo python-setuptools python-dev python-pip &&            \
+        install sudo python-setuptools python-dev python-pip default-jre  &&  \
     rm -rf /var/lib/apt/lists/*
 
 RUN pip install --upgrade pip
@@ -18,7 +18,7 @@ USER node
 WORKDIR /serverless
 
 ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
-ENV PATH=$PATH:/home/node/.npm-global/bin
+ENV PATH=$PATH:/home/node/.npm-global/bin:/serverless/node_modules/serverless/bin/
 
 RUN curl -o- -L https://yarnpkg.com/install.sh | bash
 
@@ -26,7 +26,7 @@ COPY package.json ./
 COPY package-lock.json ./
 RUN npm install
 
-RUN /serverless/node_modules/serverless/bin/serverless.js --version
+RUN serverless.js --version
 
 WORKDIR /app
 USER root
