@@ -1,7 +1,7 @@
 FROM node:15-slim
 
-RUN mkdir /app /serverless
-RUN chown node:node /app /serverless
+RUN mkdir /app /serverless /home/node/.config
+RUN chown node:node /app /serverless /home/node/.config
 
 ARG DEBIAN_INTERACTIVE=noninteractive
 RUN apt-get update && \
