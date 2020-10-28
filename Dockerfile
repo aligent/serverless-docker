@@ -1,18 +1,15 @@
 FROM node:15-slim
 
-RUN mkdir /app
-RUN mkdir /serverless
-RUN chown node:node /app
-RUN chown node:node /serverless
+RUN mkdir /app /serverless
+RUN chown node:node /app /serverless
 
 ARG DEBIAN_INTERACTIVE=noninteractive
 RUN apt-get update && \
     apt-get --no-install-recommends --assume-yes --quiet \
-        install sudo python-setuptools python-dev python-pip  &&  \
+        install sudo python-setuptools python-dev python-pip curl &&  \
     rm -rf /var/lib/apt/lists/*
 
-RUN pip install --upgrade pip
-RUN pip install awscli
+RUN pip install --upgrade pip && pip install awscli
 
 USER node
 WORKDIR /serverless
@@ -22,11 +19,10 @@ ENV PATH=$PATH:/home/node/.npm-global/bin:/serverless/node_modules/serverless/bi
 
 RUN curl -o- -L https://yarnpkg.com/install.sh | bash
 
-COPY package.json ./
-COPY package-lock.json ./
-RUN npm install
+COPY --chown=node:node package.json ./
+COPY --chown=node:node package-lock.json ./
 
-RUN serverless.js --version
+RUN npm install && serverless.js --version
 
 WORKDIR /app
 USER root
