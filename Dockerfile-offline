@@ -2,6 +2,7 @@ FROM node:15-slim
 
 RUN mkdir /app /serverless
 RUN chown node:node /app /serverless
+RUN mkdir -p /usr/share/man/man1
 
 ARG DEBIAN_INTERACTIVE=noninteractive
 RUN apt-get update && \
