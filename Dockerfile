@@ -1,23 +1,17 @@
-FROM node:15-slim
+FROM node:15-alpine
 
 RUN mkdir /app /serverless /home/node/.config
 RUN chown node:node /app /serverless /home/node/.config
 
-ARG DEBIAN_INTERACTIVE=noninteractive
-RUN apt-get update && \
-    apt-get --no-install-recommends --assume-yes --quiet \
-        install sudo python-setuptools python-dev python-pip curl &&  \
-    rm -rf /var/lib/apt/lists/*
-
-RUN pip install --upgrade pip && pip install awscli
+RUN apk add --update --no-cache py3-pip curl npm
+RUN pip3 install --upgrade pip \
+  && pip3 install awscli
 
 USER node
 WORKDIR /serverless
 
 ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
 ENV PATH=$PATH:/home/node/.npm-global/bin:/serverless/node_modules/serverless/bin/
-
-RUN curl -o- -L https://yarnpkg.com/install.sh | bash
 
 COPY --chown=node:node package.json ./
 COPY --chown=node:node package-lock.json ./
