@@ -5,7 +5,7 @@ RUN chown node:node /app /serverless /home/node/.config
 
 RUN apk update && \
     apk add \
-      sudo python3 py3-pip curl gnupg &&  \
+      sudo python3 py3-pip bash &&  \
     pip3 --no-cache-dir install --upgrade awscli
 
 USER node
