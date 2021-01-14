@@ -17,7 +17,7 @@ ENV PATH=$PATH:/home/node/.npm-global/bin:/serverless/node_modules/serverless/bi
 COPY --chown=node:node package.json ./
 COPY --chown=node:node package-lock.json ./
 
-RUN npm install && serverless.js --version
+RUN npm ci && serverless.js --version
 
 WORKDIR /app
 USER root
