@@ -1,4 +1,4 @@
-FROM node:15-buster-slim
+FROM node:14.15-buster-slim
 
 RUN mkdir /app /serverless /home/node/.config /home/node/.serverless
 RUN chown node:node /app /serverless /home/node/.config /home/node/.serverless
