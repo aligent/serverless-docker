@@ -1,7 +1,7 @@
 FROM node:alpine3.12
 
-RUN mkdir /app /serverless /home/node/.config
-RUN chown node:node /app /serverless /home/node/.config
+RUN mkdir /app /serverless /home/node/.config /home/node/.serverless
+RUN chown node:node /app /serverless /home/node/.config /home/node/.serverless
 
 RUN apk update && \
     apk add \
