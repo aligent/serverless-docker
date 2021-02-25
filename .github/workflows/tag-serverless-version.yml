@@ -1,0 +1,24 @@
+name: tag-serverless-version
+on: 
+  push:
+    branches:
+      - main
+      - 1x
+jobs:
+  tag-repo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - name: GitHub Script
+        uses: actions/github-script@v3.1.0
+        with:
+          github-token: ${{ github.token }}
+          script: |
+            github.git.createRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: "refs/tags/tagname",
+              sha: context.sha
+            })
+
