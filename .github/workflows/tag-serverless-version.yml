@@ -10,6 +10,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
+      - name: Get Serverless Version
+        run: |
+          export SERVERLESS_VERSION=$(cat package.json | grep serverless\" | head -1 | awk -F: '{ print $2 }' | sed 's/[",^]//g' | tr -d '[[:space:]]')
+          echo "SERVERLESS_VERSION=$SERVERLESS_VERSION" >> $GITHUB_ENV
       - name: GitHub Script
         uses: actions/github-script@v3.1.0
         with:
@@ -18,7 +22,7 @@ jobs:
             github.git.createRef({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              ref: "refs/tags/tagname",
+              ref: "refs/tags/${{ env.SERVERLESS_VERSION }}",
               sha: context.sha
             })
 
