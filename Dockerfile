@@ -1,7 +1,8 @@
 FROM node:15-alpine3.13
 
+COPY .serverlessrc /home/node/.serverlessrc
 RUN mkdir /app /serverless /home/node/.config /home/node/.serverless
-RUN chown node:node /app /serverless /home/node/.config /home/node/.serverless
+RUN chown node:node /app /serverless /home/node/.config /home/node/.serverless /home/node/.serverlessrc
 
 RUN apk update && \
     apk add \
