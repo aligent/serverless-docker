@@ -1,12 +1,13 @@
-FROM node:15-alpine3.13
+FROM node:14-alpine3.13
 
 RUN mkdir /app /serverless /home/node/.config /home/node/.serverless
 RUN chown node:node /app /serverless /home/node/.config /home/node/.serverless
 
 RUN apk update && \
     apk add \
-      sudo python3 py3-pip bash shadow &&  \
-    pip3 --no-cache-dir install --upgrade awscli
+      sudo python3 py3-pip bash shadow make g++ &&  \
+    pip3 --no-cache-dir install --upgrade awscli && \
+    rm -rf /var/cache/apk/*
 
 USER node
 WORKDIR /serverless
