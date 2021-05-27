@@ -1,6 +1,10 @@
+![Docker Pulls](https://img.shields.io/docker/pulls/aligent/serverless)
+![Docker Image Version (latest semver)](https://img.shields.io/docker/v/aligent/serverless?sort=semver)
+
 # Introduction
 
-Docker image for running the serverless command without requiring it to be installed.
+Docker image for running the serverless command without requiring it to be installed. It is available on docker 
+hub as [aligent/serverless](https://hub.docker.com/r/aligent/serverless).
 
 ## Installation
 
