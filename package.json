@@ -4,6 +4,6 @@
   "author": "Jarrod Swift <jarrod.swift@aligent.com.au> (https://aligent.com.au)",
   "license": "GPL-3.0",
   "dependencies": {
-    "serverless": "^2.55.0"
+    "serverless": "^2.56.0"
   }
 }
