@@ -19,6 +19,8 @@ useradd -g ${DOCKER_GID} --home-dir /home/node -s /bin/bash -u ${DOCKER_UID} nod
 chown -R node:node /home/node/.config
 chown -R node:node /home/node/.serverless
 chown -R node:node /home/node/.serverlessrc
+chown -R node:node /home/node/.aws
+chown -R node:node /home/node/.npm
 
 cd $APP_ROOT
 
