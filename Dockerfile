@@ -1,4 +1,4 @@
-FROM node:16.11-alpine3.14
+FROM node:16.13.2-alpine3.14
 
 COPY .serverlessrc /home/node/.serverlessrc
 RUN mkdir /app /serverless /home/node/.config /home/node/.serverless
