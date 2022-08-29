@@ -21,6 +21,7 @@ chown -R node:node /home/node/.serverless
 chown -R node:node /home/node/.serverlessrc
 chown -R node:node /home/node/.aws
 chown -R node:node /home/node/.npm
+chown -R node:node /home/node/.azure
 
 cd $APP_ROOT
 
