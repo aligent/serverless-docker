@@ -11,7 +11,7 @@ hub as [aligent/serverless](https://hub.docker.com/r/aligent/serverless).
 Add the following lines to your `~/.bashrc` file to be able to run it easily...
 
 ```
-alias node-run='docker run --rm -it --volume ~/.aws:/home/node/.aws --volume ~/.azure:/home/node/.azure --volume ~/.npm:/home/node/.npm --volume $PWD:/app aligent/serverless'
+alias node-run='docker run --rm -it --volume ~/.aws:/home/node/.aws --volume ~/.azure:/home/node/.azure --volume ~/.npm:/home/node/.npm --volume "$PWD:/app" aligent/serverless'
 alias serverless='node-run serverless'
 ```
 
