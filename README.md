@@ -8,8 +8,6 @@ hub as [aligent/serverless](https://hub.docker.com/r/aligent/serverless).
 
 ## Installation
 
-Ensure you have a .npm directory for caching dependancies (`mkdir -p ~/.npm`)
-
 Add the following lines to your `~/.bashrc` file to be able to run it easily...
 
 ```
