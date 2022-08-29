@@ -8,12 +8,10 @@ hub as [aligent/serverless](https://hub.docker.com/r/aligent/serverless).
 
 ## Installation
 
-Ensure you have a .npm directory for caching dependancies (`mkdir -p ~/.npm`)
-
 Add the following lines to your `~/.bashrc` file to be able to run it easily...
 
 ```
-alias node-run='docker run --rm -it --volume ~/.aws:/home/node/.aws --volume ~/.npm:/home/node/.npm --volume $PWD:/app aligent/serverless'
+alias node-run='docker run --rm -it --volume ~/.aws:/home/node/.aws --volume ~/.azure:/home/node/.azure --volume ~/.npm:/home/node/.npm --volume "$PWD:/app" aligent/serverless'
 alias serverless='node-run serverless'
 ```
 
