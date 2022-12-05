@@ -15,7 +15,6 @@ WORKDIR /serverless
 
 ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
 ENV PATH=$PATH:/home/node/.npm-global/bin:/serverless/node_modules/serverless/bin/
-RUN echo 'alias serverless="serverless.js"' >> ~/.bashrc
 
 COPY --chown=node:node package.json ./
 COPY --chown=node:node package-lock.json ./
