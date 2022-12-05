@@ -1,4 +1,4 @@
-FROM node:16.11-buster-slim
+FROM node:19.2-buster-slim
 
 COPY .serverlessrc /home/node/.serverlessrc
 RUN mkdir /app /serverless /home/node/.config /home/node/.serverless
