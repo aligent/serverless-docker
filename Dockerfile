@@ -20,6 +20,7 @@ COPY --chown=node:node package.json ./
 COPY --chown=node:node package-lock.json ./
 
 RUN npm ci && serverless.js --version
+RUN ln /serverless/node_modules/serverless/bin/serverless.js /serverless/node_modules/serverless/bin/serverless
 
 WORKDIR /app
 USER root
