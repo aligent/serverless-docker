@@ -27,5 +27,6 @@ USER root
 COPY entrypoint.sh /docker-entrypoint.sh
 RUN chmod 0755 /docker-entrypoint.sh
 
+EXPOSE 9229
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
