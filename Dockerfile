@@ -5,10 +5,10 @@ RUN mkdir /app /serverless /home/node/.config /home/node/.serverless
 RUN chown node:node /app /serverless /home/node/.config /home/node/.serverless /home/node/.serverlessrc
 
 RUN apk update && \
-    apk add \
-      sudo python3 py3-pip bash shadow make g++ &&  \
-    pip3 --no-cache-dir install --upgrade awscli && \
-    rm -rf /var/cache/apk/*
+  apk add \
+  sudo python3 py3-pip bash shadow make g++ &&  \
+  pip3 --no-cache-dir install --upgrade awscli && \
+  rm -rf /var/cache/apk/*
 
 USER node
 WORKDIR /serverless
@@ -27,5 +27,6 @@ USER root
 COPY entrypoint.sh /docker-entrypoint.sh
 RUN chmod 0755 /docker-entrypoint.sh
 
+EXPOSE 9229
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
