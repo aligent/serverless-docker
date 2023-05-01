@@ -35,6 +35,4 @@ case $FLAVOUR in
     ;;
 esac
 
-echo $FLAVOUR
-echo $NODE_TAG
-# docker build --build-arg NODE_TAG="$NODE_TAG" -f $DOCKERFILE_PATH -t $IMAGE_NAME .
+docker build --build-arg NODE_TAG="$NODE_TAG" -f $DOCKERFILE_PATH -t $IMAGE_NAME .
