@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Extract the flavour of image that is being built e.g. 3.30.6-node18-offline becomes node18-offline
+if [[ $DOCKER_TAG =~ ^[0-9.]+-(.*)$ ]]; then 
+  FLAVOUR=${BASH_REMATCH[1]}
+else 
+  echo 'Unsupported tag.'
+  exit 1;
+fi
+
+case $FLAVOUR in
+  "node16")
+    NODE_TAG="16-alpine"
+    ;;
+
+  "node16-offline")
+    NODE_TAG="16-buster-slim"
+    ;;
+
+  "node18")
+    NODE_TAG="18-alpine"
+    ;;
+
+  "node18-offline")
+    NODE_TAG="18-buster-slim"
+    ;;
+  *)
+    echo 'Unsupported tag.'
+    exit 1
+    ;;
+esac
+
+docker build --build-arg NODE_TAG="$NODE_TAG" -f $DOCKERFILE_PATH -t $IMAGE_NAME .

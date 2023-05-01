@@ -1,4 +1,5 @@
-FROM node:16.11-buster-slim
+ARG NODE_TAG
+FROM node:${NODE_TAG}
 
 COPY .serverlessrc /home/node/.serverlessrc
 RUN mkdir /app /serverless /home/node/.config /home/node/.serverless
