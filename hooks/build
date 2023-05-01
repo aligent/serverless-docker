@@ -2,12 +2,11 @@
 
 # Extract the flavour of image that is being built e.g. 3.30.6-node18-offline becomes node18-offline
 # For the latest and offline tags we default to node 18
-
 if [[ $DOCKER_TAG =~ ^[0-9.]+-(.*)$ ]]; then 
   FLAVOUR=${BASH_REMATCH[1]}
-elif [[ $DOCKER_TAG == 'latest' ]]
+elif [[ $DOCKER_TAG == 'latest' ]]; then
   FLAVOUR='node18'
-elif [[ $DOCKER_TAG == 'offline' ]]
+elif [[ $DOCKER_TAG == 'offline' ]]; then
   FLAVOUR='node18-offline'
 else
   echo 'Unsupported tag.'
@@ -36,4 +35,6 @@ case $FLAVOUR in
     ;;
 esac
 
-docker build --build-arg NODE_TAG="$NODE_TAG" -f $DOCKERFILE_PATH -t $IMAGE_NAME .
+echo $FLAVOUR
+echo $NODE_TAG
+# docker build --build-arg NODE_TAG="$NODE_TAG" -f $DOCKERFILE_PATH -t $IMAGE_NAME .
