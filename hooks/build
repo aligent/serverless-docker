@@ -1,9 +1,15 @@
 #!/bin/bash
 
 # Extract the flavour of image that is being built e.g. 3.30.6-node18-offline becomes node18-offline
+# For the latest and offline tags we default to node 18
+
 if [[ $DOCKER_TAG =~ ^[0-9.]+-(.*)$ ]]; then 
   FLAVOUR=${BASH_REMATCH[1]}
-else 
+elif [[ $DOCKER_TAG == 'latest' ]]
+  FLAVOUR='node18'
+elif [[ $DOCKER_TAG == 'offline' ]]
+  FLAVOUR='node18-offline'
+else
   echo 'Unsupported tag.'
   exit 1;
 fi
