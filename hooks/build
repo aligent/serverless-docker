@@ -2,7 +2,7 @@
 
 # Extract the node version of image that is being built e.g. 3.30.6-node18 builds an image based on node:18-alpine
 # For the latest tag we default to node 18
-if [[ $DOCKER_TAG =~ ^[0-9.]+-node([0-9.]+)$ ]]; then 
+if [[ $DOCKER_TAG =~ ^[0-9a-zA-Z.]+-node([0-9.]+)$ ]]; then 
   VERSION=${BASH_REMATCH[1]}
 elif [[ $DOCKER_TAG == 'latest' ]]; then
   VERSION='18'
