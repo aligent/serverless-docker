@@ -44,7 +44,7 @@ determine_serverless_image() {
         NODE_VERSION=$(<"$NVM_RC")
 
         if [[ $NODE_VERSION =~ ^v?([0-9]+)(\.[0-9]+)?(\.[0-9]+)?$ ]]; then
-            echo "aligent/serverless:node${BASH_REMATCH[1]}"
+            echo "aligent/serverless:latest-node${BASH_REMATCH[1]}"
             return 0
         fi
     fi
