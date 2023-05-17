@@ -53,5 +53,5 @@ determine_serverless_image() {
     return 0
 }
 
-alias node-run="docker run --rm -it --volume ~/.aws:/home/node/.aws --volume ~/.azure:/home/node/.azure --volume ~/.npm:/home/node/.npm --volume \"$PWD:/app\" $(determine_serverless_image)"
+alias node-run='docker run --rm -it --volume ~/.aws:/home/node/.aws --volume ~/.azure:/home/node/.azure --volume ~/.npm:/home/node/.npm --volume $PWD:/app $(determine_serverless_image)'
 ```
