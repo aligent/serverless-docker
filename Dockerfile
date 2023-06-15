@@ -7,7 +7,7 @@ RUN chown node:node /app /serverless /home/node/.config /home/node/.serverless /
 
 RUN apk update && \
     apk add \
-      sudo python3 py3-pip bash shadow make g++ groff less &&  \
+      sudo python3 py3-pip bash shadow make g++ groff less git &&  \
     pip3 --no-cache-dir install --upgrade awscli && \
     rm -rf /var/cache/apk/*
 
