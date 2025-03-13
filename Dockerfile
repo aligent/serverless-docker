@@ -1,4 +1,4 @@
-ARG NODE_TAG
+ARG NODE_TAG=alpine # default value
 FROM node:${NODE_TAG}
 
 COPY .serverlessrc /home/node/.serverlessrc
