@@ -6,9 +6,9 @@ RUN mkdir /app /serverless /home/node/.config /home/node/.serverless
 RUN chown node:node /app /serverless /home/node/.config /home/node/.serverless /home/node/.serverlessrc
 
 RUN apk update && \
-    apk add \
-      sudo bash shadow make g++ groff less git openssh awscli \
-    rm -rf /var/cache/apk/*
+    apk add sudo bash shadow make g++ groff less git openssh aws-cli
+
+RUN rm -rf /var/cache/apk/*
 
 USER node
 WORKDIR /serverless
