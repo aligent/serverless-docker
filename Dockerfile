@@ -1,4 +1,4 @@
-ARG NODE_TAG
+ARG NODE_TAG=alpine # default value
 FROM node:${NODE_TAG}
 
 COPY .serverlessrc /home/node/.serverlessrc
@@ -6,10 +6,9 @@ RUN mkdir /app /serverless /home/node/.config /home/node/.serverless
 RUN chown node:node /app /serverless /home/node/.config /home/node/.serverless /home/node/.serverlessrc
 
 RUN apk update && \
-    apk add \
-      sudo python3 py3-pip bash shadow make g++ groff less git openssh &&  \
-    pip3 --no-cache-dir install --upgrade awscli && \
-    rm -rf /var/cache/apk/*
+    apk add sudo bash shadow make g++ groff less git openssh aws-cli
+
+RUN rm -rf /var/cache/apk/*
 
 USER node
 WORKDIR /serverless
