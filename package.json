@@ -1,9 +1,12 @@
 {
   "name": "serverless-docker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Jarrod Swift <jarrod.swift@aligent.com.au> (https://aligent.com.au)",
   "license": "GPL-3.0",
   "dependencies": {
     "serverless": "^3.38.0"
+  },
+  "resolutions": {
+    "lodash": "4.18.1"
   }
 }
